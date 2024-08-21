@@ -1,5 +1,7 @@
 package com.example.cryptocurrency_app.data.remote.dto
 
+import com.example.cryptocurrency_app.domain.models.CoinDetail
+
 data class CoinDetailDto(
     val description: String,
     val development_status: String,
@@ -21,8 +23,22 @@ data class CoinDetailDto(
     val rank: Int,
     val started_at: String,
     val symbol: String,
-    val tags: List<Tag>,
+    val tags: List<TagList>,
     val team: List<TeamMember>,
     val type: String,
     val whitepaper: Whitepaper
 )
+
+
+fun CoinDetailDto.toCoinDetail() : CoinDetail{
+    return CoinDetail(
+        coinId = id,
+        name = name,
+        description = description,
+        symbol = symbol,
+        rank = rank,
+        isActive = is_active,
+        tags = tags,
+        teams = team
+    )
+}
