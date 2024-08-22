@@ -23,7 +23,8 @@ class AppModule {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_URL)
-            .build().create(CoinPaprikaApi::class.java)
+            .build()
+            .create(CoinPaprikaApi::class.java)
     }
 
     @Provides
